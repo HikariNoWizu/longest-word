@@ -1,6 +1,7 @@
 """module docstring"""
 import random
 import string
+import requests
 
 class Game:
     """class docstring"""
@@ -17,6 +18,7 @@ class Game:
             my_word_is_valid &= letter in grid_copy
             if my_word_is_valid:
                 grid_copy.remove(letter)
+        my_word_is_valid &= requests.get('https://wagon-dictionary.herokuapp.com/'+word).json()['found']
         return my_word_is_valid
 
     def extra_useless_method(self):
