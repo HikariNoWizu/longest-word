@@ -1,6 +1,7 @@
 """module docstring"""
 import random
 import string
+import requests
 
 class Game:
     """class docstring"""
@@ -17,9 +18,13 @@ class Game:
             my_word_is_valid &= letter in grid_copy
             if my_word_is_valid:
                 grid_copy.remove(letter)
+        r = requests.get('https://wagon-dictionary.herokuapp.com/HELLO')
         return my_word_is_valid
 
     def extra_useless_method(self):
         """Method docstring"""
         # pylint: disable=missing-docstring
         # pylint: disable=too-few-public-methods
+
+r = requests.get('https://wagon-dictionary.herokuapp.com/HELLO')
+print(r)
